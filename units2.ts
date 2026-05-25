@@ -23,57 +23,57 @@ class Archer extends Unit {
 class FireWarrior extends Warrior {
   private fireDamage: number = 10;
   getDescription(): string {
-    return `Огненный ${super.getDescription()} с дополнительным уроном от огня ${this.fireDamage}`;
+    return `Fire ${super.getDescription()} с дополнительным уроном от огня ${this.fireDamage}`;
   }
 }
 class FireWizard extends Wizard {
   private fireDamage: number = 10;
   getDescription(): string {
-    return `Огненный ${super.getDescription()} с дополнительным уроном от огня ${this.fireDamage}`;
+    return `Fire ${super.getDescription()} с дополнительным уроном от огня ${this.fireDamage}`;
   }
 }
 class FireArcher extends Archer {
   private fireDamage: number = 10;
   getDescription(): string {
-    return `Огненный ${super.getDescription()} с дополнительным уроном от огня ${this.fireDamage}`;
+    return `Fire ${super.getDescription()} с дополнительным уроном от огня ${this.fireDamage}`;
   }
 }
 
 class FrostWarrior extends Warrior {
-  private slowdown: number = 30;
+  private slowdown: number = 23;
   getDescription(): string {
-    return `Морозный ${super.getDescription()} с шансом замедления ${this.slowdown}%`;
+    return `Frosty ${super.getDescription()} с шансом замедления ${this.slowdown}%`;
   }
 }
 class FrostWizard extends Wizard {
-  private slowdown: number = 30;
+  private slowdown: number = 23;
   getDescription(): string {
-    return `Морозный ${super.getDescription()} с шансом замедления ${this.slowdown}%`;
+    return `Frosty ${super.getDescription()} с шансом замедления ${this.slowdown}%`;
   }
 }
 class FrostArcher extends Archer {
-  private slowdown: number = 30;
+  private slowdown: number = 23;
   getDescription(): string {
-    return `Морозный ${super.getDescription()} с шансом замедления ${this.slowdown}%`;
+    return `Frosty ${super.getDescription()} с шансом замедления ${this.slowdown}%`;
   }
 }
 
 class PoisonWarrior extends Warrior {
-  private poisonDamage: number = 5;
+  private poisonDamage: number = 7.5;
   getDescription(): string {
-    return `Ядовитый ${super.getDescription()} с периодическим уроном от яда ${this.poisonDamage}`;
+    return `Poisonous ${super.getDescription()} с периодическим уроном от яда ${this.poisonDamage}`;
   }
 }
 class PoisonWizard extends Wizard {
-  private poisonDamage: number = 5;
+  private poisonDamage: number = 7.5;
   getDescription(): string {
-    return `Ядовитый ${super.getDescription()} с периодическим уроном от яда ${this.poisonDamage}`;
+    return `Poisonous ${super.getDescription()} с периодическим уроном от яда ${this.poisonDamage}`;
   }
 }
 class PoisonArcher extends Archer {
-  private poisonDamage: number = 5;
+  private poisonDamage: number = 7.5;
   getDescription(): string {
-    return `Ядовитый ${super.getDescription()} с периодическим уроном от яда ${this.poisonDamage}`;
+    return `Poisonous ${super.getDescription()} с периодическим уроном от яда ${this.poisonDamage}`;
   }
 }
 
@@ -82,7 +82,6 @@ abstract class UnitFactory {
   abstract createWizard(): Wizard;
   abstract createArcher(): Archer;
 }
-
 
 class FireFactory extends UnitFactory {
   createWarrior(): Warrior { return new FireWarrior(); }
@@ -103,7 +102,6 @@ class PoisonFactory extends UnitFactory {
 }
 
 function generateRandomUnit(): Unit {
-
   const factories: UnitFactory[] = [
     new FireFactory(),
     new FrostFactory(),
@@ -121,7 +119,8 @@ function generateRandomUnit(): Unit {
     return randomFactory.createArcher();
   }
 }
-console.log("=== Генерация 10 случайных юнитов ===\n");
+
+console.log("-Генерация случайных units- \n");
 for (let i = 1; i <= 10; i++) {
   const randomUnit = generateRandomUnit();
   console.log(`Unit ${i}: ${randomUnit.getDescription()}`);
